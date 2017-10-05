@@ -12,23 +12,16 @@ public class DisplayText : MonoBehaviour {
 
   public float targetTime = 0.0f ;
   public int minutes = 0 ;
+	public Vector3 startPosition;
+	public Vector3 recentPosition;
 	// Use this for initialization
 	void Start () {
 		//time
-		float translation = Time.deltaTime * 10;
-    transform.Translate(0, 0, translation);
-
-		var tmp = transform.position;
-		print(tmp.x);
-		name_text.text = "Position:"+ tmp.x + "Time:" + translation;
+		startPosition = transform.position;
 
 	}
 
-	// Update is called once per frame
-	void Update () {
-
-		float translation = Time.deltaTime;
-    // transform.Translate(0, 0, translation);
+	string getTime() {
 
 		targetTime += Time.deltaTime;
 		if(targetTime > 60) {
@@ -36,9 +29,35 @@ public class DisplayText : MonoBehaviour {
 			minutes = minutes + 1;
 		}
 		decimal decimalValue = Math.Round((decimal)targetTime, 1);
-		print(decimalValue);
-		var tmp = transform.position;
-		name_text.text = "Position:"+ tmp.x + "Time:"+minutes+ ":" + decimalValue;
+
+		var stringTime = minutes + ":" + decimalValue;
+
+		return stringTime;
+	}
+
+	string getDistance() {
+
+		recentPosition = transform.position;
+		var x1 = startPosition.x;
+		var x2 = recentPosition.x;
+		var y1 = startPosition.z;
+		var y2 = recentPosition.z;
+		var x_calc = Math.Pow((x2-x1),2);
+		var y_calc = Math.Pow((y2-y1),2);
+		double sum = x_calc + y_calc;
+		double distance = Math.Round(Math.Sqrt(sum));
+		print(x_calc+y_calc);
+		var stringDistance = distance + "/500m";
+		return stringDistance;
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+		var time = getTime();
+		var stringDistance = getDistance();
+		name_text.text = stringDistance + "\n" + time;
 
 	}
 }
