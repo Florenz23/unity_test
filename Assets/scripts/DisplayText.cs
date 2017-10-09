@@ -46,7 +46,6 @@ public class DisplayText : MonoBehaviour {
 		var y_calc = Math.Pow((y2-y1),2);
 		double sum = x_calc + y_calc;
 		double distance = Math.Round(Math.Sqrt(sum));
-		print(x_calc+y_calc);
 		var stringDistance = distance + "/500m";
 		return stringDistance;
 

@@ -8,6 +8,11 @@ using System.Text;
 public class SaveDataController : MonoBehaviour {
 
 	// Use this for initialization
+	public void Data(string speed, int time)
+    {
+        Speed = speed;
+        Time = time;
+    }
 	void Start () {
 		SaveItemInfo();
 	}
@@ -18,7 +23,9 @@ public class SaveDataController : MonoBehaviour {
 	}
 	public void SaveItemInfo(){
 		string path = null;
-		path = "./data/saved_player.json";
+		path = "./Assets/data/saved_player.json";
+		Data savedData = new Data("20",10);
+
 		// string str = ItemInfo.ToString();
 		string str = "{moin:hey}";
 		using (FileStream fs = new FileStream(path, FileMode.Create)){
