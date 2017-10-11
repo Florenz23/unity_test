@@ -16,13 +16,7 @@ public class PlayerInfo
     {
         return JsonUtility.FromJson<PlayerInfo>(jsonString);
     }
-
-    // Given JSON input:
-    // {"name":"Dr Charles","lives":3,"health":0.8}
-    // this example will return a PlayerInfo object with
-    // name == "Dr Charles", lives == 3, and health == 0.8f.
 }
-
 
 public class SaveDataController : MonoBehaviour {
 
@@ -51,13 +45,12 @@ public class SaveDataController : MonoBehaviour {
 		UnityEditor.AssetDatabase.Refresh ();
 	}
 	public List<PlayerInfo> readData() {
-		string path1 = null;
+		string path1 = "./Assets/data/saved_player1.json";
 		const Int32 BufferSize = 128;
 		PlayerInfo player = new PlayerInfo();
 		List<PlayerInfo> array = new List<PlayerInfo>();
 		//PlayerInfo[] array = {};
 		int counter = 0;
-		path1 = "./Assets/data/saved_player1.json";
 		using (var fileStream = File.OpenRead(path1))
 		  using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize)) {
 						string read_line = "";
@@ -70,14 +63,6 @@ public class SaveDataController : MonoBehaviour {
 						i = 99999;
 					}
 				}
-				print("nein");
-		    String line;
-		    while ((line = streamReader.ReadLine()) != null)
-					print("jo");
-					if(line != null) {
-						print(line);
-					}
-					print("moin");
 		  }
 		print(array.Count);
 		return array;
