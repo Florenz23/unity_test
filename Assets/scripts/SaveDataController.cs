@@ -8,9 +8,9 @@ using System.Text;
 
 public class PlayerInfo
 {
-    public string name;
-    public int lives;
-    public float health;
+    public float x;
+    public float y;
+    public float z;
 
     public static PlayerInfo CreateFromJSON(string jsonString)
     {
@@ -22,7 +22,7 @@ public class SaveDataController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SaveItemInfo();
+		// SaveItemInfo();
 	}
 
 	// Update is called once per frame
@@ -67,9 +67,9 @@ public class SaveDataController : MonoBehaviour {
 		string str = "";
 		path = "./Assets/data/saved_player.json";
 		PlayerInfo myObject = new PlayerInfo();
-		myObject.lives = 1;
-		myObject.health = 47.5f;
-		myObject.name = "Dr Charles Francis";
+		myObject.x = 1.0f;
+		myObject.y = 2.0f;
+		myObject.z = 3.0f;
 		PlayerInfo[] array = {myObject,myObject};
 		writeData(array);
 		readData();

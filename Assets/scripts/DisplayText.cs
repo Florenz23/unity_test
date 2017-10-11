@@ -17,6 +17,7 @@ public class DisplayText : MonoBehaviour {
 	void Start () {
 		//time
 		startPosition = transform.position;
+		savePerformData();
 
 	}
 
@@ -32,6 +33,21 @@ public class DisplayText : MonoBehaviour {
 		var stringTime = minutes + ":" + decimalValue;
 
 		return stringTime;
+	}
+
+	void savePerformData() {
+		recentPosition = transform.position;
+		var x = recentPosition.x;
+		var y = recentPosition.y;
+		var z = recentPosition.z;
+		PlayerInfo myObject = new PlayerInfo();
+		myObject.x = 3.0f;
+		myObject.y = 4.0f;
+		myObject.z = 3.0f;
+		SaveDataController DataController = new SaveDataController();
+		PlayerInfo[] array = {myObject,myObject};
+		DataController.writeData(array);
+
 	}
 
 	string getDistance() {
