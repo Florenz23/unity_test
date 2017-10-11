@@ -29,7 +29,7 @@ public class SaveDataController : MonoBehaviour {
 	void Update () {
 
 	}
-	public void writeData(Array array) {
+	public void writeData(List<PlayerInfo> array) {
 		string path1 = null;
 		path1 = "./Assets/data/saved_player.json";
 		using (StreamWriter sw = new StreamWriter(path1))
@@ -70,7 +70,9 @@ public class SaveDataController : MonoBehaviour {
 		myObject.x = 1.0f;
 		myObject.y = 2.0f;
 		myObject.z = 3.0f;
-		PlayerInfo[] array = {myObject,myObject};
+		List<PlayerInfo> array = new List<PlayerInfo>();
+		array.Add(myObject);
+		array.Add(myObject);
 		writeData(array);
 		readData();
 }
