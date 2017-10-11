@@ -19,12 +19,12 @@ public class SavePlayerDataController : MonoBehaviour {
 	}
 
 	void savePerformData() {
-		// if (counter == 100){
+		if (counter == 1000){
 			SaveDataController DataController = new SaveDataController();
 			DataController.writeData(array);
 			// array = new List<PlayerInfo>();
 			counter = 0;
-		// }
+		}
 		recentPosition = transform.position;
 		var x = recentPosition.x;
 		var y = recentPosition.y;

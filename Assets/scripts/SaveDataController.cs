@@ -42,7 +42,7 @@ public class SaveDataController : MonoBehaviour {
 		UnityEditor.AssetDatabase.Refresh ();
 	}
 	public List<PlayerInfo> readData() {
-		string path1 = "./Assets/data/saved_player1.json";
+		string path1 = "./Assets/data/saved_player.json";
 		const Int32 BufferSize = 128;
 		PlayerInfo player = new PlayerInfo();
 		List<PlayerInfo> array = new List<PlayerInfo>();

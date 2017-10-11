@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 856656000}
   - component: {fileID: 856656001}
   - component: {fileID: 856656002}
-  - component: {fileID: 856656003}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -347,19 +346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recentPosition: {x: 0, y: 0, z: 0}
   counter: 0
---- !u!114 &856656003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856655993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0105eb743be24d12929ec18357f8f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  position: {x: 0, y: 0, z: 0}
 --- !u!1 &946945405
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +358,7 @@ GameObject:
   - component: {fileID: 946945408}
   - component: {fileID: 946945407}
   - component: {fileID: 946945406}
+  - component: {fileID: 946945411}
   m_Layer: 0
   m_Name: Oponent
   m_TagString: Untagged
@@ -458,6 +445,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946945411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946945405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0105eb743be24d12929ec18357f8f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  position: {x: 0, y: 0, z: 0}
+  x: 0
+  y: 0
+  z: 0
+  counter: 0
 --- !u!1 &1338353985
 GameObject:
   m_ObjectHideFlags: 0
