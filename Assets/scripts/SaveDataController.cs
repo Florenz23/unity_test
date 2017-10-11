@@ -104,8 +104,8 @@ public class SaveDataController : MonoBehaviour {
 		myObject.timeElapsed = 47.5f;
 		myObject.playerName = "Dr Charles Francis";
 		MyClass[] array = {myObject,myObject};
-		// writeData(array);
-		readData();
+		writeData(array);
+		// readData();
 }
 
 }
