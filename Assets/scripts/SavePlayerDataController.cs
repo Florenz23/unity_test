@@ -15,7 +15,7 @@ public class SavePlayerDataController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate (){
-		savePerformData();
+		// savePerformData();
 	}
 
 	void savePerformData() {
