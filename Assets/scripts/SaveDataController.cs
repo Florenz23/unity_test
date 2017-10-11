@@ -23,9 +23,6 @@ public class SaveDataController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SaveItemInfo();
-		string test = "{\"name\":\"Dr Charles\",\"lives\":3,\"health\":0.8}";
-		PlayerInfo player = new PlayerInfo();
-		PlayerInfo moin = PlayerInfo.CreateFromJSON(test);
 	}
 
 	// Update is called once per frame
@@ -53,9 +50,8 @@ public class SaveDataController : MonoBehaviour {
 		int counter = 0;
 		using (var fileStream = File.OpenRead(path1))
 		  using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize)) {
-						string read_line = "";
 				for (var i = 0; i<99999; i++){
-					read_line = streamReader.ReadLine();
+					string read_line = streamReader.ReadLine();
 					if (read_line != null){
 						player = PlayerInfo.CreateFromJSON(read_line);
 						array.Add(player);
@@ -64,7 +60,6 @@ public class SaveDataController : MonoBehaviour {
 					}
 				}
 		  }
-		print(array.Count);
 		return array;
 	}
 	public void SaveItemInfo(){
@@ -77,7 +72,7 @@ public class SaveDataController : MonoBehaviour {
 		myObject.name = "Dr Charles Francis";
 		PlayerInfo[] array = {myObject,myObject};
 		writeData(array);
-		// readData();
+		readData();
 }
 
 }

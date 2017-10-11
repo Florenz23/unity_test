@@ -8,7 +8,6 @@ public class DisplayText : MonoBehaviour {
 
 	public TextMesh name_text;
 
-	private string testName = "moin";
 
   public float targetTime = 0.0f ;
   public int minutes = 0 ;
