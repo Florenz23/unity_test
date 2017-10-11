@@ -26,12 +26,6 @@ public class PlayerInfo
 
 public class SaveDataController : MonoBehaviour {
 
-		public class MyClass{
-	    public int level;
-	    public float timeElapsed;
-	    public string playerName;
-	}
-
 	// Use this for initialization
 	void Start () {
 		SaveItemInfo();
@@ -44,18 +38,12 @@ public class SaveDataController : MonoBehaviour {
 	void Update () {
 
 	}
-
-	public static MyClass CreateFromJSON(string jsonString)
-	 {
-			 return JsonUtility.FromJson<MyClass>(jsonString);
-	 }
-
 	public void writeData(Array array) {
 		string path1 = null;
 		path1 = "./Assets/data/saved_player.json";
 		using (StreamWriter sw = new StreamWriter(path1))
             {
-                foreach (MyClass obj in array)
+                foreach (PlayerInfo obj in array)
                 {
                     sw.WriteLine(JsonUtility.ToJson(obj));
                 }
@@ -66,7 +54,6 @@ public class SaveDataController : MonoBehaviour {
 		string path1 = null;
 		const Int32 BufferSize = 128;
 		PlayerInfo player = new PlayerInfo();
-		MyClass obj = null;
 		List<PlayerInfo> array = new List<PlayerInfo>();
 		//PlayerInfo[] array = {};
 		int counter = 0;
@@ -99,11 +86,11 @@ public class SaveDataController : MonoBehaviour {
 		string path = null;
 		string str = "";
 		path = "./Assets/data/saved_player.json";
-		MyClass myObject = new MyClass();
-		myObject.level = 1;
-		myObject.timeElapsed = 47.5f;
-		myObject.playerName = "Dr Charles Francis";
-		MyClass[] array = {myObject,myObject};
+		PlayerInfo myObject = new PlayerInfo();
+		myObject.lives = 1;
+		myObject.health = 47.5f;
+		myObject.name = "Dr Charles Francis";
+		PlayerInfo[] array = {myObject,myObject};
 		writeData(array);
 		// readData();
 }
